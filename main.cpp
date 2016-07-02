@@ -21,7 +21,7 @@ void wierszpolecen(int *przedmiot, int &glod, int &zmeczenie, int &krew, int *wy
 
 int main()
 {
-    PlaySound(TEXT("test.wav"), NULL, SND_ASYNC);
+    //PlaySound(TEXT("test.wav"), NULL, SND_ASYNC); TODO: muzyka do menu
     bool *pominiecie= new bool;
     *pominiecie=false;
     string credits="Nedesf przedstawia gre survivalowa pod tytulem";
@@ -64,7 +64,7 @@ int main()
               {
                   for (int y=0; y<100; y++)
                   {
-                      mapa [x][y] = 1;
+                      mapa [x][y] = 1;        
                   }
               }
               for (int x=1; x<99; x++)
@@ -72,7 +72,7 @@ int main()
                   for (int y=1; y<100; y++)
                   {
                       mapa [x][y] = 0;
-                      pole [x][y] = rand()%14+1;
+                      pole [x][y] = rand()%14+1;  //tablica pole odpowiada za generowanie sie przedmiotow typu patyk itp.
                       if (pole[x][y]==14){
                         wodax.push_back(x);         ///podaj koordynaty generatorowi wody
                         woday.push_back(y);
@@ -114,7 +114,7 @@ int main()
                       delete ilewody;
               }
               pole[50][50]=0;
-              mapa[50][50]=0; mapa[51][50]=0; mapa[52][50]=0; mapa[53][50]=0;
+              mapa[50][50]=0; mapa[51][50]=0; mapa[52][50]=0; mapa[53][50]=0;     //ochrona przed zablokowaniem gracza na spawnie
               while (ruch!='q')
               {
                   sztucznaint(zyjacybandyta, pozycjaX, pozycjaY, bandytaX, bandytaY, wytrzymaloscs, mapa);
@@ -292,7 +292,7 @@ int main()
                                 wierszpolecen(przedmiot, glod, zmeczenie, krew, wyposazenie, waga, wybor3, poprzedniw, zdrowie, pole, pozycjaX, pozycjaY, dzienrozpalenia, dzien, rozpaloneognisko, ogniskoX, ogniskoY, mapa, wytrzymaloscs);
                                 break;
                             }
-                        case 'z': ///zapis gry
+                        case 'z': ///zapis gry      TODO: ulepszenie zapisu gry (narazie zapisuje tylko czesc rzeczy)
                             {
                                 cout<<endl<<"Na pewno chcesz zapisac?? "<<endl<<
                                 "1 - tak"<<endl<<
